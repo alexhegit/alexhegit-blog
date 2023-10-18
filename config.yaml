@@ -1,7 +1,7 @@
-baseURL: https://example.com
+baseURL: https://alexhegit.github.io
 languageCode: en-us
 title: Hugo
-theme: hugo-theme-mini
+theme: mini
 
 # Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish) / da (Danish), default 'en'
 defaultContentLanguage: en
