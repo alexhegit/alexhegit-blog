@@ -1,10 +1,10 @@
 baseURL: https://alexhegit.github.io
 languageCode: en-us
-title: Hugo
+title: Alex He's Blog
 theme: mini
 
 # Default content language, support en (English) / zh (Chinese) / nl (Dutch) / fr (French) / es (Spanish) / da (Danish), default 'en'
-defaultContentLanguage: en
+defaultContentLanguage: zh 
 
 # !!! exampleSite only, you may need to delete the line: `themesDir: ../../` 
 #themesDir: ../../
@@ -36,7 +36,7 @@ markup:
 # Social links in footer, support github,twitter,stackoverflow,facebook
 social:
   # e.g.
-  github: your-github-link
+  github: https://github.com/alexhegit
   twitter: your-github-link
   stackoverflow: your-github-link
   # facebook: your-facebook-link
@@ -45,7 +45,7 @@ social:
 # Site parameters
 params:
   # Site Author
-  author: Author
+  author: Alex He <heye_dev@163.com>
   # Author biography
   bio: Software Engineer
   # Site Description, used in HTML meat
