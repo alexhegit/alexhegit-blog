@@ -13,6 +13,7 @@ CodeShell是刚刚推出的代码辅助LLM。抛开性能不谈，**其显著优
 ## CodeShell Introduction
 
 HG Model Card: https://huggingface.co/WisdomShell/CodeShell-7B-Chat
+
 Github Home Page: https://github.com/WisdomShell
 
 
@@ -22,14 +23,13 @@ CodeShell is a multi-language code LLM developed by the Knowledge Computing Lab 
 
 本次开源的模型如下：
 
-CodeShell Base：CodelShell底座模型，具有强大的代码基础能力。
-CodeShell Chat：CodelShell对话模型，在代码问答、代码补全等下游任务重性能优异。
-CodeShell Chat 4bit：CodelShell对话模型4bit量化版本，在保证模型性能的前提下内存消耗更小，速度更快。
-CodeShell CPP：CodelShell对话模型CPP版本，支持开发者在没有GPU的个人电脑中使用。注意，CPP版本同样支持量化操作，用户可以在最小内存为8G的个人电脑中运行CodeShell。
+- CodeShell Base：CodelShell底座模型，具有强大的代码基础能力。
+- CodeShell Chat：CodelShell对话模型，在代码问答、代码补全等下游任务重性能优异。
+- CodeShell Chat 4bit：CodelShell对话模型4bit量化版本，在保证模型性能的前提下内存消耗更小，速度更快。
+- CodeShell CPP：CodelShell对话模型CPP版本，支持开发者在没有GPU的个人电脑中使用。注意，CPP版本同样支持量化操作，用户可以在最小内存为8G的个人电脑中运行CodeShell。
 
 
 ## Deploy CodeShell with llama.cpp
-
 
 ### Build llama.cpp project (WSL2)
 WisdomShell fork it from ggerganov/llama.cpp and add somethings to support codeshell model.
@@ -64,15 +64,15 @@ llama_cpp_for_codeshell.git provide many scripts to convert HG model(files downl
 
 The convert-codeshell-hf-to-gguf.py is for codeshell.
 Check the options:
-![Alt text](/resources/image-1.png)
+![Alt text](resources/image-1.png)
 
 Convert it:
 ```
 $ ./convert-codeshell-hf-to-gguf.py /mnt/d/LLM_Files/codeshell/CodeShell-7B-Chat/ 1 --outfile ./models/codeshell-7b-chat-f16.gguf
 ```
-![Alt text](/resources/image.png)
+![Alt text](resources/image.png)
 
-![Alt text](/resources/image-2.png)
+![Alt text](resources/image-2.png)
 
 Quantize it:
 ```
@@ -93,7 +93,7 @@ Simple Chat:
 $ ./main -m ./models/codeshell-7b-chat-q4_0.gguf -n 1024 --repeat_penalty 1.0 --color -i -r "User:" -f prompts/chat-with-bob.txt
 
 ```
-![Alt text](/resources/image-3.png)
+![Alt text](resources/image-3.png)
 
 
 ## Install CodeShell Extention of VSCode
@@ -105,7 +105,7 @@ It's so easy to install CodeShell Extention in VSCode. Got it from the Extention
 The CodeShell Extention support two model inference server backend, one is llama.cpp+CPU and another is TGI+GPU. Here I will show the llama.cpp+CPU which is the default backend.
 
 Make sure the settings like this:
-![Alt text](/resources/image-5.png)
+![Alt text](resources/image-5.png)
 
 ## Start the model inference server by llama.cpp
 
@@ -115,7 +115,7 @@ Server it:
 $ ./server -m ./models/codeshell-7b-chat-q4_0.gguf -n 1024
 ```
 The default URL of server is http://127.0.0.1:8080, Open it in broswer will see it like:
-![Alt text](/resources/image-4.png)
+![Alt text](resources/image-4.png)
 
 Then you can use it in brower or from VSCode
 
@@ -128,7 +128,7 @@ Codeshell support
 3. QA
 
 Open the Codeshell Extention Windows and use it.
-![Alt text](/resources/image-6.png)
+![Alt text](resources/image-6.png)
 
 
 ## Reference
