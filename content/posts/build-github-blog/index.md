@@ -132,6 +132,68 @@ mini是一个简洁快速的轻量级主题
 
 提交完成后，所见即所得 [Alex He's Blog](https://alexhegit.github.io)
 
+
+## 关于后续新发布内容的操作细节
+
+### 发布流程
+
+基于上面的描述，您已经构建好了2个git repo。后续新增内容的发布流程将简化为：
+
+1. 在Hugo blog repo中post一个新的内容。
+   - 这里建议为每一个新的内容build出一个子目录。
+    ```
+    例如：这里我将建立一个新的主题发布“Deploy-CodeShell-w-VSCode”
+    $hugo new posts/Deploy-CodeShell-w-VSCode  //创建新主题及目录,及默认主题的md文件
+    $mkdir posts/Deploy-CodeShell-w-VSCode/resources  //创建资源目录，在此可以放置md使用的图片
+
+    将hugo自动创建的发布md重新命名为index.md(这样才可以build出可引用图片资源内容页面)
+    $mv posts/Deploy-CodeShell-w-VSCode/Deploy-CodeShell-w-VSCode.md posts/Deploy-CodeShell-w-VSCode/index.md
+    ```
+    该发布的目录结构如下：
+    ```
+     $ tree content/posts/
+    content/posts/
+    ├── Deploy-CodeShell-w-VSCode
+    │   ├── index.md
+    │   └── resources
+    │       ├── image-1.png
+    │       ├── image-2.png
+    │       ├── image-3.png
+    │       ├── image-4.png
+    │       ├── image-5.png
+    │       ├── image-6.png
+    │       └── image.png
+    ```
+
+2. 填写内容，测试内容完成后build出页面结果
+   ```
+   在创建出的index.md中，编辑发布内容。测试，并在浏览器中观察结果
+   $hugo server -D
+   确认内容可发布后，将index.md中的draft字段值从"true"改为"false"
+3. 提交新内容到Hugo blog repo
+   ```
+   将本次新创建的post内容文件及资源文件，提交同步到githug remote repo。
+   $git add .
+   $git commit -a -s
+   $git push
+   ```
+4. 在public子目录中，即github page repo中，commit/push新的内容
+   ```
+   build新发布内容
+   $hugo
+   在public子目录下将自动生成新内容相关的输出文件
+   ```
+   ```
+   同布内容到github page repo
+   $cd public
+   $git add .
+   $git commit -a -s
+   $git push
+   ```
+5. 登录github page浏览新发布
+
+
+
 ## 一些问题及解决方法
 
 - WSL-Ubuntu系统中git使用报错问题解决：GnuTLS recv error (-110): The TLS connection was non-properly terminated   [https://zhuanlan.zhihu.com/p/624555732](https://zhuanlan.zhihu.com/p/624555732)
